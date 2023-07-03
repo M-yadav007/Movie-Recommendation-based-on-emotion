@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emotion Detection Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #1f1f1f;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+        }
+        
+        h1, h2, h3 {
+            text-align: center;
+        }
+        
+        h1 {
+            color: #ff3f3f;
+        }
+        
+        h2 {
+            color: #ff7070;
+        }
+        
+        h3 {
+            color: #fff;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        li {
+            margin: 10px;
+            width: 200px;
+        }
+        
+        .movie-image {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Emotion Detection Result</h1>
+        <h2>Dominant Emotion: {{ emotion }}</h2>
+        <h3>Recommended Movies:</h3>
+        <ul>
+            {% for movie in movies %}
+            <li>
+                <img class="movie-image" src="{{ movie.image_url }}" alt="{{ movie.title }}">
+                <p>{{ movie.title }} (Rating: {{ movie.rating }})</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
